@@ -1,10 +1,6 @@
 use adw;
 
--- Empleados
-select *
-from HumanResources_Employee
-limit 6
-;
+
 WITH produccion AS (
     SELECT
         p.ProductID,
