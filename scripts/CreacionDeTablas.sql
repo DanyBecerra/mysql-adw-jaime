@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS WhBG;
+
 -- Creación de la tabla DimStore
 CREATE TABLE DimStore (
     StoreID INT PRIMARY KEY,
