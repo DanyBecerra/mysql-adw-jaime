@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS WhBG;
 use WhBG;
-CREATE TABLE IF NOT EXIST DimStore (
+CREATE TABLE IF NOT EXISTS DimStore (
   Store_Key INT Auto_increment PRIMARY KEY,
   Store_ID INT NULL DEFAULT NULL,
   StoreName VARCHAR(255),
@@ -36,25 +36,23 @@ CREATE TABLE IF NOT EXISTS DimEmployee (
   EmployeeName VARCHAR(255),
   AgeRangeName VARCHAR(255),
   GenderName VARCHAR(255)
-)
+);
 
 CREATE TABLE IF NOT EXISTS FactFires (
-  Fire_Key INT PRIMARY KEY,
-  StoreID_FK INT,
-  TitleID_FK INT,
-  EmployeeID_FK INT,
-  ShiftID_FK INT,
-  LocationID_FK INT,
-  firingDate DATE,
+  Store_FK INT,
+  Title_FK INT,
+  Employee_FK INT,
+  Shift_FK INT,
+  Location_FK INT,
   amount INT,
-  INDEX StoreID_FK (StoreID_FK ASC) VISIBLE,
-  INDEX TitleID_FK (TitleID_FK ASC) VISIBLE,
-  INDEX EmployeeID_FK (EmployeeID_FK ASC) VISIBLE,
-  INDEX ShiftID_FK (ShiftID_FK ASC) VISIBLE,
-  INDEX LocationID_FK (LocationID_FK ASC) VISIBLE,
-  FOREIGN KEY (StoreID_FK) REFERENCES DimStore(StoreID_PK),
-  FOREIGN KEY (TitleID_FK) REFERENCES DimEmployeeTitle(TitleID_PK),
-  FOREIGN KEY (EmployeeID_FK) REFERENCES DimEmployee(EmployeeID_PK),
-  FOREIGN KEY (ShiftID_FK) REFERENCES DimShift(ShiftID_PK),
-  FOREIGN KEY (LocationID_FK) REFERENCES DimEmployeeLocation(LocationID_PK)
+  INDEX Store_FK (Store_FK ASC) VISIBLE,
+  INDEX Title_FK (Title_FK ASC) VISIBLE,
+  INDEX Employee_FK (Employee_FK ASC) VISIBLE,
+  INDEX Shift_FK (Shift_FK ASC) VISIBLE,
+  INDEX Location_FK (Location_FK ASC) VISIBLE,
+  FOREIGN KEY (Store_FK) REFERENCES DimStore(Store_Key),
+  FOREIGN KEY (Title_FK) REFERENCES DimEmployeeTitle(Title_Key),
+  FOREIGN KEY (Employee_FK) REFERENCES DimEmployee(Employee_Key),
+  FOREIGN KEY (Shift_FK) REFERENCES DimShift(Shift_Key),
+  FOREIGN KEY (Location_FK) REFERENCES DimEmployeeLocation(Location_Key)
 );
