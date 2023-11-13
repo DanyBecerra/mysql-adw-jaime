@@ -38,13 +38,14 @@ CREATE TABLE IF NOT EXISTS DimEmployee (
   GenderName VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS FactFires (
+CREATE TABLE IF NOT EXISTS FactHires (
   Store_FK INT,
   Title_FK INT,
   Employee_FK INT,
   Shift_FK INT,
   Location_FK INT,
   amount INT,
+  HireDate DATE, 
   INDEX Store_FK (Store_FK ASC) VISIBLE,
   INDEX Title_FK (Title_FK ASC) VISIBLE,
   INDEX Employee_FK (Employee_FK ASC) VISIBLE,

@@ -4,7 +4,7 @@ INSERT INTO WhBG.DimEmployeeLocation (
     CountryName
 )
 SELECT
-    e.BusinessEntityID as Location_ID,
+    st.TerritoryID as Location_ID,
     psp.Name as ProvinceName,
     cr.Name as CountryName
 FROM 
