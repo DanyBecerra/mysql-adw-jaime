@@ -1,11 +1,11 @@
 INSERT INTO WhBG.DimEmployee (
-    EmployeeID_PK,
+    Employee_ID,
     EmployeeName,
     AgeRangeName,
     GenderName
 )
-SELECT DISTINCT
-    e.BusinessEntityID as EmployeeID_PK,
+SELECT 
+    e.BusinessEntityID as Employee_ID,
     CONCAT(p.FirstName, ' ', p.LastName) as EmployeeName, -- Concatenation method for full name might vary based on SQL dialect
     CASE 
     WHEN TIMESTAMPDIFF(YEAR, e.BirthDate, CURDATE()) BETWEEN 0 AND 20 THEN '0-20'

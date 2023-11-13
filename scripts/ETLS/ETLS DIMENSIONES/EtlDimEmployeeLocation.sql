@@ -3,11 +3,13 @@ INSERT INTO WhBG.DimEmployeeLocation (
     ProvinceName,
     CountryName
 )
-SELECT DISTINCT
-    a.AddressID as LocationID_PK,
-    sp.Name as ProvinceName,
+SELECT
+    e.BusinessEntityID as Location_ID,
+    psp.Name as ProvinceName,
     cr.Name as CountryName
 FROM 
-    adw.Person_Address a
-    JOIN adw.Person_StateProvince sp ON a.StateProvinceID = sp.StateProvinceID
-    JOIN adw.Person_CountryRegion cr ON sp.CountryRegionCode = cr.CountryRegionCode;
+    adw.Sales_SalesPerson sp
+    JOIN adw.HumanResources_Employee e ON sp.BusinessEntityID = e.BusinessEntityID
+    join adw.Sales_SalesTerritory st ON sp.TerritoryID = st.TerritoryID
+    JOIN adw.Person_StateProvince psp ON st.TerritoryID = psp.TerritoryID
+    JOIN adw.Person_CountryRegion cr ON psp.CountryRegionCode = cr.CountryRegionCode;
