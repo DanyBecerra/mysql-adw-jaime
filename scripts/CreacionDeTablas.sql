@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS DimStore (
 
 CREATE TABLE IF NOT EXISTS DimEmployeeTitle (
   Title_Key INT AUTO_INCREMENT PRIMARY KEY,
-  Title_ID INT NULL DEFAULT NULL,
   DepartmentName VARCHAR(255),
   TitleName VARCHAR(255)
 );
@@ -26,6 +25,7 @@ CREATE TABLE IF NOT EXISTS DimShift (
 
 CREATE TABLE IF NOT EXISTS DimEmployeeLocation (
   Location_Key INT Auto_increment PRIMARY KEY,
+  Location_ID INT NULL DEFAULT NULL,
   ProvinceName VARCHAR(255),
   CountryName VARCHAR(255)
 );

@@ -1,5 +1,5 @@
 INSERT INTO WhBG.DimEmployeeLocation (
-    LocationID_PK,
+    Location_ID,
     ProvinceName,
     CountryName
 )

@@ -1,11 +1,11 @@
 INSERT INTO WhBG.DimShift (
-    ShiftID_PK,
+    Shift_ID,
     StartTime,
     EndTime,
     ShiftName
 )
 select 
-    S.ShiftID as ShiftID_PK,
+    S.ShiftID as Shift_ID,
     S.Name as ShiftName,
     S.StartTime as StartTime,
     S.EndTime as EndTime
