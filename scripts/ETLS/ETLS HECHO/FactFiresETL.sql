@@ -1,4 +1,4 @@
-INSERT INTO FactHires (
+INSERT INTO FactFires (
     StoreID_FK,
     TitleID_FK,
     EmployeeID_FK,
