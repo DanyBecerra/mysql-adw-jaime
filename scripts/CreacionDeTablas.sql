@@ -3,6 +3,7 @@ use WhBG;
 
 CREATE TABLE IF NOT EXISTS DimEmployeeTitle (
   Title_Key INT AUTO_INCREMENT PRIMARY KEY,
+  Title_ID INT NULL DEFAULT NULL,
   DepartmentName VARCHAR(255),
   TitleName VARCHAR(255)
 );
