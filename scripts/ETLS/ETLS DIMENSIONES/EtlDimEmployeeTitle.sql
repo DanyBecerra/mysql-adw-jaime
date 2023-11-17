@@ -1,8 +1,10 @@
 INSERT INTO WhBG.DimEmployeeTitle (
+    Title_ID,
     DepartmentName,
     TitleName
 )
-SELECT 
+SELECT
+    E.BusinessEntityID as Title_ID,
     D.Name as DepartmentName,
     E.jobTitle as TitleName
 FROM adw.HumanResources_EmployeeDepartmentHistory AS DH
