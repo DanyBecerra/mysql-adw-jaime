@@ -16,7 +16,7 @@ SELECT
     YEAR(fechas.fecha) as yearV,
     DATE_FORMAT(fechas.fecha, '%Y-%m') as year_month_number
 FROM (
-    SELECT BusinessEntityID, DATE(HireDate) as fecha
+    SELECT distinct BusinessEntityID, DATE(HireDate) as fecha
     FROM adw.HumanResources_Employee
 ) as fechas
 
