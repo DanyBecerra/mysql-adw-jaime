@@ -49,3 +49,11 @@ FROM FactHires h
 INNER JOIN DimEmployeeTitle et ON h.Title_FK = et.Title_Key 
 GROUP BY et.DepartmentName;
 
+-- Ecalcula el total de contrataciones por turno 
+
+SELECT 
+  s.ShiftName, 
+  SUM(h.amount) AS TotalHires 
+FROM FactHires h
+INNER JOIN DimShift s ON h.Shift_FK = s.Shift_Key 
+GROUP BY s.ShiftName;
